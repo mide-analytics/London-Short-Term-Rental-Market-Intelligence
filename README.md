@@ -2,7 +2,17 @@
 
 This portfolio project uses Inside Airbnb’s 17 September 2026 London snapshot to examine listing supply, advertised prices, host concentration, calendar availability and review activity across London neighbourhoods.
 
-Read the [portfolio case study and dashboard gallery](docs/case-study.md).
+## View the dashboards
+
+Open any screenshot directly on GitHub. Interactive browser viewing is planned for a later step.
+
+| Dashboard | Power BI | Tableau |
+| --- | --- | --- |
+| London market overview | [View screenshot](docs/screenshots/powerbi-market-overview.png) | [View screenshot](docs/screenshots/tableau-market-overview.png) |
+| Host concentration | [View screenshot](docs/screenshots/powerbi-host-concentration.png) | [View screenshot](docs/screenshots/tableau-host-concentration.png) |
+| Calendar and reviews | [View screenshot](docs/screenshots/powerbi-calendar-reviews.png) | [View screenshot](docs/screenshots/tableau-calendar-reviews.png) |
+
+[Read the full case study](docs/case-study.md) for findings, methodology, and data limitations.
 
 | Input | Grain | Use |
 | --- | --- | --- |
