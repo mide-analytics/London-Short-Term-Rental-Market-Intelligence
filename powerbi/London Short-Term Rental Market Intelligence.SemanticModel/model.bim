@@ -1,0 +1,364 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Listings\", \"Calendar Monthly\", \"Reviews Monthly\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-GB",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "relationships": [
+      {
+        "name": "Calendar Monthly to Listings",
+        "fromColumn": "Listing ID",
+        "fromTable": "Calendar Monthly",
+        "toColumn": "Listing ID",
+        "toTable": "Listings"
+      },
+      {
+        "name": "Reviews Monthly to Listings",
+        "fromColumn": "Listing ID",
+        "fromTable": "Reviews Monthly",
+        "toColumn": "Listing ID",
+        "toTable": "Listings"
+      }
+    ],
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "Listings",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Listing ID",
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "4327f146-04fc-597a-bcc7-298ec0922911",
+            "sourceColumn": "listing_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Advertised Nightly GBP",
+            "dataType": "decimal",
+            "lineageTag": "1be7e12d-c63e-57f0-bf7e-2a24d54ac987",
+            "sourceColumn": "advertised_nightly_gbp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Host ID",
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "a294ea4b-dde8-5ebc-83fa-642196ecbef6",
+            "sourceColumn": "host_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Neighbourhood",
+            "dataType": "string",
+            "lineageTag": "d58dc53a-9498-5952-9532-9a43a5ce1b4f",
+            "sourceColumn": "neighbourhood_cleansed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Room Type",
+            "dataType": "string",
+            "lineageTag": "9654da7b-6202-5a2c-90d3-0c798edf7c3a",
+            "sourceColumn": "room_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Latitude",
+            "dataType": "double",
+            "lineageTag": "ee342126-1716-553c-9aec-8d54b571e137",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Longitude",
+            "dataType": "double",
+            "lineageTag": "cecb44f8-9024-505a-b42d-df8a917432a7",
+            "sourceColumn": "longitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Accommodates",
+            "dataType": "int64",
+            "lineageTag": "c75e277b-5efc-5b47-b3f4-504d4d978c62",
+            "sourceColumn": "accommodates",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minimum Nights",
+            "dataType": "int64",
+            "lineageTag": "fffc5678-0fe6-5000-8bd9-e64917023927",
+            "sourceColumn": "minimum_nights",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Review Scores Rating",
+            "dataType": "double",
+            "lineageTag": "29d11a65-2b2c-5afd-9ac3-0e0dfaf4d1e1",
+            "sourceColumn": "review_scores_rating",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Number Of Reviews",
+            "dataType": "int64",
+            "lineageTag": "d5d51b3e-ec51-5db4-9baf-4866517c2d7e",
+            "sourceColumn": "number_of_reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Host Listing Count",
+            "dataType": "int64",
+            "lineageTag": "0d0f9c95-a1d7-5d37-9d1e-62dc3c07bbb8",
+            "sourceColumn": "host_listing_count",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "17287708-ffef-5228-98d1-ce65769d8785",
+        "measures": [
+          {
+            "name": "Listing count",
+            "expression": "COUNTROWS('Listings')",
+            "formatString": "#,0",
+            "lineageTag": "a7f2fd5e-305f-4eb6-a2bb-1c0dacd1bc70"
+          },
+          {
+            "name": "Median nightly price",
+            "expression": "MEDIAN('Listings'[Advertised Nightly GBP])",
+            "formatString": "£#,0.00",
+            "lineageTag": "95846678-7b0f-480e-b540-aebe350df0dd"
+          },
+          {
+            "name": "Price coverage",
+            "expression": "DIVIDE(COUNT('Listings'[Advertised Nightly GBP]), [Listing count])",
+            "formatString": "0.0%",
+            "lineageTag": "3fc81b90-fbe1-4ef5-9afd-6798956dc7eb"
+          },
+          {
+            "name": "Host count",
+            "expression": "DISTINCTCOUNTNOBLANK('Listings'[Host ID])",
+            "formatString": "#,0",
+            "lineageTag": "7f909c65-91e8-498f-98ad-8b620f20b64c"
+          },
+          {
+            "name": "Multi-listing hosts",
+            "expression": "CALCULATE([Host count], KEEPFILTERS('Listings'[Host Listing Count] >= 2))",
+            "formatString": "#,0",
+            "lineageTag": "8acd29db-cb56-43eb-abfa-1f6c2ec72c42"
+          },
+          {
+            "name": "Multi-listing host share",
+            "expression": "DIVIDE([Multi-listing hosts], [Host count])",
+            "formatString": "0.0%",
+            "lineageTag": "84b2de03-c063-460b-b3f7-a5bd2e979d1d"
+          },
+          {
+            "name": "Multi-listing host listings",
+            "expression": "CALCULATE([Listing count], KEEPFILTERS('Listings'[Host Listing Count] >= 2))",
+            "formatString": "#,0",
+            "lineageTag": "cd2456b0-6960-416e-9c6d-e1aea05699f8"
+          },
+          {
+            "name": "Share of listings from multi-listing hosts",
+            "expression": "DIVIDE([Multi-listing host listings], [Listing count])",
+            "formatString": "0.0%",
+            "lineageTag": "97785cb0-5fd5-41a3-bfed-428e73d10edf"
+          },
+          {
+            "name": "Average listing rating",
+            "expression": "AVERAGE('Listings'[Review Scores Rating])",
+            "formatString": "0.00",
+            "lineageTag": "ade65508-936d-48ef-91db-16d3b0344352"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Listings",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\London Airbnb\\data\\processed\\listings.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"listing_id\", type text}, {\"advertised_nightly_gbp\", Currency.Type}, {\"host_id\", type text}, {\"neighbourhood_cleansed\", type text}, {\"room_type\", type text}, {\"latitude\", type number}, {\"longitude\", type number}, {\"accommodates\", Int64.Type}, {\"minimum_nights\", Int64.Type}, {\"review_scores_rating\", type number}, {\"number_of_reviews\", Int64.Type}, {\"host_listing_count\", Int64.Type}}, \"en-GB\")",
+                "in Typed"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Calendar Monthly",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Listing ID",
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "8a1bb271-04b6-5857-ae61-ea4269b70aa9",
+            "sourceColumn": "listing_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "MMM yyyy",
+            "lineageTag": "f442e41a-bd53-5b52-b63f-1d68e3f76d24",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Observed Nights",
+            "dataType": "int64",
+            "lineageTag": "ffe74113-ef37-5d5d-97e3-a2e757601bba",
+            "sourceColumn": "observed_nights",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Available Nights",
+            "dataType": "int64",
+            "lineageTag": "a090289c-6a86-5705-9cd3-bf9209ed15da",
+            "sourceColumn": "available_nights",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "0650447e-abdc-5803-a3ce-d6237aa18a5a",
+        "measures": [
+          {
+            "name": "Observed listing nights",
+            "expression": "SUM('Calendar Monthly'[Observed Nights])",
+            "formatString": "#,0",
+            "lineageTag": "84e66177-0834-4d45-ba90-14aaf9dd87f2"
+          },
+          {
+            "name": "Available listing nights",
+            "expression": "SUM('Calendar Monthly'[Available Nights])",
+            "formatString": "#,0",
+            "lineageTag": "9d3748b1-9099-450f-80e8-e1e4983ae050"
+          },
+          {
+            "name": "Calendar availability",
+            "expression": "DIVIDE([Available listing nights], [Observed listing nights])",
+            "formatString": "0.0%",
+            "lineageTag": "c1a9a90c-c3f6-46be-8ac6-9d6e3ba4b1e5"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Calendar Monthly",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\London Airbnb\\data\\processed\\calendar_monthly.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"listing_id\", type text}, {\"month\", type date}, {\"observed_nights\", Int64.Type}, {\"available_nights\", Int64.Type}}, \"en-GB\")",
+                "in Typed"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Reviews Monthly",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Listing ID",
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "8c0d0697-6035-5725-9699-1c0930ae5699",
+            "sourceColumn": "listing_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "MMM yyyy",
+            "lineageTag": "43177833-71db-5495-be5f-41080ff8de74",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Review Count",
+            "dataType": "int64",
+            "lineageTag": "5177ccbc-9d14-5cfd-bc18-dba0ede0fa73",
+            "sourceColumn": "review_count",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "df071e58-34d7-51d7-aedd-11530dd45ba3",
+        "measures": [
+          {
+            "name": "Review records",
+            "expression": "SUM('Reviews Monthly'[Review Count])",
+            "formatString": "#,0",
+            "lineageTag": "72c4adb1-5096-4027-95ed-37113b297028"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Reviews Monthly",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\London Airbnb\\data\\processed\\reviews_monthly.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"listing_id\", type text}, {\"month\", type date}, {\"review_count\", Int64.Type}}, \"en-GB\")",
+                "in Typed"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

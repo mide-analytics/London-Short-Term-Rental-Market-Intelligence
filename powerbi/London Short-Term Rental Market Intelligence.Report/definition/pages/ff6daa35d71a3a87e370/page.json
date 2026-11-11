@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.3.1/schema.json",
+  "name": "ff6daa35d71a3a87e370",
+  "displayName": "London market overview",
+  "displayOption": "FitToPage",
+  "width": 1280,
+  "height": 720
+}

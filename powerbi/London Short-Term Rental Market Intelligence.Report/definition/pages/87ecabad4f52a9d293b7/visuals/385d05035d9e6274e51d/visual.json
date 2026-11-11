@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "385d05035d9e6274e51d",
+  "position": {
+    "x": 24,
+    "y": 14,
+    "width": 1232,
+    "height": 70,
+    "z": 1000,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Host concentration",
+                    "textStyle": {
+                      "fontSize": "25pt",
+                      "color": "#13332E"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Multi-listing hosts have at least two listings across the London snapshot.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#465C57"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

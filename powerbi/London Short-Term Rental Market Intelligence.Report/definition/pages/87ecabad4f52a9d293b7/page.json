@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.3.1/schema.json",
+  "name": "87ecabad4f52a9d293b7",
+  "displayName": "Host concentration",
+  "displayOption": "FitToPage",
+  "width": 1280,
+  "height": 720
+}

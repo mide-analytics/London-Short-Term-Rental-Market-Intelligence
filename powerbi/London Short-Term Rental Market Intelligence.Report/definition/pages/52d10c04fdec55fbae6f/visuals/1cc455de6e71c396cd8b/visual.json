@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1cc455de6e71c396cd8b",
+  "position": {
+    "x": 244,
+    "y": 680,
+    "width": 1012,
+    "height": 30,
+    "z": 10000,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Unavailable nights can include reservations and host blocks. First and last calendar months are partial.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#465C57"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

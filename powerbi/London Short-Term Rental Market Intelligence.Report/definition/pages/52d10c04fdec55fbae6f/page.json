@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.3.1/schema.json",
+  "name": "52d10c04fdec55fbae6f",
+  "displayName": "Calendar and reviews",
+  "displayOption": "FitToPage",
+  "width": 1280,
+  "height": 720
+}

@@ -1,0 +1,8 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../London Short-Term Rental Market Intelligence.SemanticModel"
+    }
+  }
+}
